@@ -25,4 +25,5 @@ Zustand
 React
 React-router-dom
 NextUI
+Tailwindcss
 ```
