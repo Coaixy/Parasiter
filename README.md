@@ -12,12 +12,12 @@ Parasiter是一个基于React + Typescript + SWC的前端项目，是一个用�
 ```
 ## 项目运行
 ```
-pnpm install
-pnpm start
+Yarn
+Yarn dev
 ```
 ## 项目部署
 ```
-pnpm run build
+Yarn build
 ```
 ## 项目依赖
 ```
