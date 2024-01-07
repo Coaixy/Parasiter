@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import map from './Assets/map.jpg'
 import RiskNode from './Componets/RiskNode';
+import { useMount, useSize, useTimeout } from 'ahooks';
 const Risk = () => {
     const [nodes, setNodes] = useState<Array<Array<number>>>([[]]);
+    const ref = useRef(null)
+    const size = useSize(ref);
     const risks = Array.from({ length: 6 }, () => {
         const riskLevel = (Math.random() * 100);
         if (riskLevel < 60) {
@@ -15,13 +18,14 @@ const Risk = () => {
             }
         }
     });
-    useEffect(() => {
-        const initialNodes = Array.from({ length: 6 }, () => [(Math.random() * 300), (Math.random() * 700)]);
+    useTimeout(() => {
+        const initialNodes = Array.from({ length: 6 }, () => [(Math.random() * (size?.width - 50)), (Math.random() * (size?.height - 50))]);
         setNodes(initialNodes);
-    }, []);
+    }, 10)
     return (
-        <>
-            <div style={{
+
+        <><h1>{size?.height}</h1>
+            <div ref={ref} style={{
                 position: "absolute",
                 top: "0",
                 left: "0",

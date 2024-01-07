@@ -1,4 +1,5 @@
 import { DropdownItem, DropdownMenu } from "@nextui-org/react";
+import { useMount } from "ahooks";
 import { useEffect, useState } from "react";
 
 const InfoDropDown = (props: { active: boolean; mail: string }) => {
@@ -6,14 +7,14 @@ const InfoDropDown = (props: { active: boolean; mail: string }) => {
     const login = () => {
         return ;
     }
-    useEffect(() => {
+    useMount(() => {
         console.log(props)
         if (props.active == false) {
             setDisableKeys(['settings', 'team_settings', 'logout'])
         } else {
             setDisableKeys([])
         }
-    }, [])
+    })
     return (<>
         <DropdownMenu aria-label="Profile Actions" variant="flat" disabledKeys={disabledKeys}>
             <DropdownItem key="profile" className="h-14 gap-2" onClick={login}>

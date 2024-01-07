@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Button, Image, Radio, RadioGroup, Textarea, select } from "@nextui-org/react";
 import { usePlayStore } from "./Stores/PlayStore";
 import testPlayImg  from './Assets/playImgs/testPlayImg.jpg'
+import { useMount } from "ahooks";
 const Play = () => {
     const [countDown, index, type, setCountDown, setIndex] = usePlayStore((state) => [state.countDown, state.index, state.type, state.setCountDown, state.setIndex])
     const [selected, setSelected] = React.useState("A");
@@ -12,7 +13,7 @@ const Play = () => {
         alert("你选择的是:" + selectText);
     }
     //  获取数据
-    useEffect(() => {
+    useMount(() => {
         selectArrayRef.current = ["鞭毛虫卵", "绦虫卵", "未受精蛔虫卵", "受精蛔虫卵", "肺吸虫卵"];
     })
     // 倒计时

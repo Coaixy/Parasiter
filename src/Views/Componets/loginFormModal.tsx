@@ -3,17 +3,18 @@ import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDi
 import { MailIcon } from '../Assets/MailIcon.js'
 import { LockIcon } from '../Assets/LockIcon.js';
 import { useIndexStore } from "../Stores/IndexStore.js";
+import { useMount } from "ahooks";
 
 export default function LoginFormModal(props: { active: boolean; }) {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
     const login = (mail: string, password: string) => {
         useIndexStore.setState({ isLogin: true, mail: mail, password: password })
     }
-    useEffect(() => {
+    useMount(() => {
         if (props.active == false) {
             onOpen()
         }
-    }, [])
+    })
 
     return (
         <>
