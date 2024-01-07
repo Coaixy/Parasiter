@@ -8,6 +8,8 @@ import {
 import './index.css'
 import Index from './Views/Index.tsx';
 import Play from './Views/Play.tsx';
+import Finish from './Views/Finish.tsx';
+import Risk from './Views/Risk.tsx';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,14 @@ const router = createBrowserRouter([
   {
     path: "/play",
     element: <Play></Play>,
+  },
+  {
+    path: "/finish",
+    element: <Finish></Finish>,
+  },
+  {
+    path: "/risk",
+    element: <Risk></Risk>,
   },
 ]);
 
