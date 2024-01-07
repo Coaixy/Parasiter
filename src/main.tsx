@@ -7,11 +7,16 @@ import {
 } from "react-router-dom";
 import './index.css'
 import Index from './Views/Index.tsx';
+import Play from './Views/Play.tsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Index></Index>,
+  },
+  {
+    path: "/play",
+    element: <Play></Play>,
   },
 ]);
 
